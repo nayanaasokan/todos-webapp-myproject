@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block style_block %}
+<style>
+table{border-radius:15px;overflow: hidden;}
+#h{background-color:#D9AFD9 ;height:50px;text-align:center;}
+td{background-color: white;text-align: center;height:44px}
+table{margin-top:80px;width:900px}
+</style>
+{% endblock %}
+
+{% block body_block %}
+<h1 align="center" class="mt-3">ToDo<i class="fa-solid fa-circle-check"></i></h1>
+{% if messages %}
+            {% for m in messages %}
+                <div class="alert alert-success alert-dismissible fade show fs-6" role="alert">
+                    <strong>{{m}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="container d-flex justify-content-center gap-5 mt-4">
+            {% for i in data_1 %}
+            {% if i.status == "completed" %}
+            <div class="alert alert-success border border-1 border-secondary fw-bolder fs-5">
+                Total task {{i.status}}:{{i.status_count}}
+            </div>
+            {%else%}
+            <div class="alert alert-danger border border-1 border-secondary fw-bolder fs-5">
+                Total task {{i.status}}:{{i.status_count}}
+            </div>
+            {%endif%}
+            {%endfor%}
+        </div>
+
+        
+
+<center>
+<table>
+    <tr id="h">
+        <th>id</th>
+        <th>title</th>
+        <th>status</th>
+        <th>created_date</th>
+        <th>updated_date</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.status}}</td>
+        <td>{{i.created_date}}</td>
+        <td>{{i.updated_date}}</td>
+        <td><a href="{% url 'task-detail' i.id %}" class="btn btn-secondary rounded-pill">Details</a></td>
+        <td><a href="{% url 'task-delete' i.id %}" class="btn btn-danger rounded-pill">Delete</a></td>
+        <td><a href="{% url 'task-update' i.id %}" class="btn btn-secondary rounded-pill">Edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</center>
+{% endblock %}

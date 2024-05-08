@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+
+{% block body_block %}
+<h3 style="margin-left:640px;text-decoration: underline;" class="mt-3">Add new task</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form action="" method="post" class="bg-secondary p-3 rounded text-white mt-4">{% csrf_token %}
+                {% for f in form%}
+                <div class="mb-3">
+                    {{f.label_tag}}
+                    {{f}}
+                </div>
+                {% endfor %}
+
+            <button type="submit" class="btn btn-warning rounded-pill fw-bolder fs-6" style="margin-left:160px;box-shadow:2px 2px 4px black;">Add</button>
+
+            </form>
+
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{% endblock %}

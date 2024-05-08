@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block style_block %}
+<style>
+table{border-radius:15px;overflow: hidden;}
+#h{background-color:#D9AFD9 ;height:50px;text-align:center;}
+td{background-color: white;text-align: center;height: 45px;}
+table{margin-top:80px;width:900px}
+</style>
+{% endblock %}
+
+{% block body_block %}
+<h1 align="center" class="mt-3">ToDo<i class="fa-solid fa-circle-check"></i></h1>
+<center>
+<table>
+    <tr id="h">
+        <th>id</th>
+        <th>title</th>
+        <th>description</th>
+        <th>status</th>
+        <th>created_date</th>
+        <th>updated_date</th>
+    </tr>
+    <tr>
+        <td>{{data.id}}</td>
+        <td>{{data.title}}</td>
+        <td>{{data.description}}</td>
+        <td>{{data.status}}</td>
+        <td>{{data.created_date}}</td>
+        <td>{{data.updated_date}}</td>
+    </tr>
+</table>
+</center>
+{% endblock %}

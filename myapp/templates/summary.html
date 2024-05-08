@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body_block%}
+<h2 style="margin-left:630px;text-decoration: underline;margin-top:20px;font-weight:bolder;">Summary</h2>
+    <h4 style="margin-left:580px;margin-top:20px;color:rgb(161, 82, 121);font-weight:bold;">{{data_2.com_count}}/{{total_task.task_count}} todos completed</h4>
+<div class="d-flex justify-content-center mt-4 gap-4">
+<div class="container">
+    {% for i in data %}
+    <div class="alert alert-success border border-1 border-secondary fw-bolder fs-5 text-center" style="width:300px;margin-left:310px;">
+        Task {{i.id}} completed <i class="fa-solid fa-square-check"></i>
+    </div>
+    {%endfor%}
+</div>
+<div class="container">
+    {% for i in data_1 %}
+    <div class="alert alert-danger border border-1 border-secondary fw-bolder fs-5 text-center" style="width:300px">
+        Task {{i.id}} pending <i class="fa-solid fa-square-xmark"></i>
+    </div>
+    {%endfor%}
+</div>
+</div>
+
+
+{% endblock %}
